@@ -5,7 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Election Results</title>
-
+	<script src="https://wallet.metamask.io/metamascara.js"></script>
+	<script>
+	const metamask = require('metamascara')
+	const ethereumProvider = metamask.createDefaultProvider({
+    host: 'http://127.0.0.1:8545'
+  }) // or what ever port you use
+	</script>
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
   </head>

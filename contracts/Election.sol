@@ -22,7 +22,7 @@ contract Election {
     mapping(address => bool) public voters;
 
     constructor () public {
-        addCandidate("Hillaripous Clint");
+        addCandidate("Hillarious Clint");
         addCandidate("Donald Duck");
     }
 
