@@ -417,7 +417,7 @@ var contract = (function(module) {
       var self = this;
       var val = {}; //this.at(this.address);
 
-      // Add thennable to allow people to opt into new recommended usage.
+      // Add then enable to allow people to opt into new recommended usage.
       val.then = function(fn) {
         return self.detectNetwork().then(function() {
           // We don't have a network config for the one we found

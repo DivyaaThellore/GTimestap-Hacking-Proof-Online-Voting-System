@@ -22,8 +22,8 @@ contract Election {
     mapping(address => bool) public voters;
 
     constructor () public {
-        addCandidate("Hillarious Clint");
-        addCandidate("Donald Duck");
+        addCandidate("Donald Trump");
+        addCandidate("Literally Anyone Else");
     }
 
 	function vote (uint _candidateId) public {
