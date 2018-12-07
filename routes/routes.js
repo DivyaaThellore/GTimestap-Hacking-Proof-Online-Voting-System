@@ -8,7 +8,7 @@ MyContractJSON  = require('../public/javascripts/build/contracts/Election.json')
 
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.post('/authenticate-controller', function(req, res, next) {
 // // Setup RPC connection
 //     var provider    = new Web3.providers.HttpProvider("http://localhost:8545");
 //

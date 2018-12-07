@@ -110,6 +110,7 @@ App = {
     var candidateId = $('#candidatesSelect').val();
     App.contracts.Election.deployed().then(function(instance) {
       return instance.vote(candidateId, { from: App.account });
+      //return instance.vote(candidateId, { from: "0x28aa356e0b01e88b6efaef4020d84ced659c1636" });
     }).then(function(result) {
       // Wait for votes to update
       $("#content").hide();

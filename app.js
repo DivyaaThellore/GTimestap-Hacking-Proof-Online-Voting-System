@@ -3,9 +3,14 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var bodyParser=require('body-parser');
 
 var routes = require('./routes/routes');
-var usersRouter = require('./routes/users');
+// var usersRouter = require('./routes/users');
+var authenticateController=require('./routes/authenticate-controller');
+var registerController=require('./routes/register-controller');
+var connection = require('./public/javascripts/config');
+//var indexVariable = require('./views/index.html');
 
 var app = express();
 
@@ -19,8 +24,26 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
-app.use('/users', usersRouter);
+//app.use('/', routes);
+// app.use('/users', usersRouter);
+
+
+app.get('/', function (req, res) {  
+   res.sendFile( __dirname + "index.html" );  
+})  
+
+ 
+/* route to handle login and registration */
+app.post('/api/register',registerController.register);
+app.post('/api/authenticate',authenticateController.authenticate);
+ 
+console.log(authenticateController);
+app.post('/register-controller', registerController.register);
+app.use('/authenticate-controller', authenticateController.authenticate);
+// app.post('/admin', function (req, res) {  
+//    res.sendFile( __dirname + "/src/" + "admin.html" );  
+// })  
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -37,6 +60,12 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+ 
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static( __dirname));
+
 
 module.exports = app;
 
